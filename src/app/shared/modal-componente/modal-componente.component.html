@@ -1,12 +1,16 @@
-<div class="modal-header">
-  <h3 class="modal-title" id="modal-basic-title">Profile update</h3>
-  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
+<div [ngClass]="setLevel()">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">Profile update</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Level: {{level}}</p>
+    <p>Modal Body</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Save</button>
+  </div>
 </div>
-<div class="modal-body">
-  <p>Modal Body</p>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Save click')">Save</button>
-</div>
+

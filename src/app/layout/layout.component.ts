@@ -1,3 +1,4 @@
+import { MainService } from './../services/main.service';
 import { ModalComponenteComponent } from './../shared/modal-componente/modal-componente.component';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -10,12 +11,24 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class LayoutComponent implements OnInit {
   level = 1;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private mainService: MainService
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.mainService.obtenerNivelTamannio().subscribe(level => {
+      this.level = level;
+    });
+  }
 
   setLevel(): string {
     return `level-${this.level}`;
+  }
+
+  foo(event: any): void {
+    let value = parseInt(event.target.value, 10);
+    this.mainService.setearNivelTamannio(value);
   }
 
   openModalPlantilla(content: any): void {
