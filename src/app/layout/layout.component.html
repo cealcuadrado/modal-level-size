@@ -1,1 +1,29 @@
-<p>layout works!</p>
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <h2>Modal por plantilla</h2>
+    <button class="btn btn-primary" (click)="openModalPlantilla(content)">
+      Abrir modal por plantilla
+    </button>
+  </div>
+  <div class="col-12 col-lg-6">
+    <h2>Modal por componente</h2>
+    <button class="btn btn-primary" (click)="openModalComponente()">
+      Abrir modal por componente
+    </button>
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Modal Body</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
