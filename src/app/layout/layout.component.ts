@@ -8,9 +8,15 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent implements OnInit {
+  level = 1;
+
   constructor(private modalService: NgbModal) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  setLevel(): string {
+    return `level-${this.level}`;
+  }
 
   openModalPlantilla(content: any): void {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
